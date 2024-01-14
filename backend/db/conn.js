@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 const uri = process.env.URL_MONGODB;
 
-const client = new MongoClient(uri, {
+export const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
@@ -17,9 +17,13 @@ export async function run() {
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
+
     console.log("Conectado ao MongoDB Atlas");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+  } catch (error) {
+    console.log(error);
   }
+  // finally {
+  //   // Ensures that the client will close when you finish/error
+  //   await client.close();
+  // }
 }
