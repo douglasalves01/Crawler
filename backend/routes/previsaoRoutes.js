@@ -3,4 +3,5 @@ import { PrevisaoTempo } from "../controllers/PrevisaoTempo.js";
 
 export const router = express.Router();
 
-router.get("/getAll", PrevisaoTempo.getAll);
+router.get("/weather", PrevisaoTempo.getWeatherCity);
+router.post("/weather", PrevisaoTempo.getWeatherCityApi);
