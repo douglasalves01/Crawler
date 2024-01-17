@@ -6,7 +6,7 @@ const app = express();
 
 app.use("/", router);
 
-await run();
+run();
 app.listen(5000, (err) => {
   if (err) {
     console.log(err);
