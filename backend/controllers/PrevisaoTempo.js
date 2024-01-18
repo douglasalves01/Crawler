@@ -112,7 +112,7 @@ export class PrevisaoTempo {
         await client
           .db("previsao-tempo")
           .collection("previsao")
-          .updateOne({ cidade }, { $set: dadosFiltrados });
+          .insertOne({ cidade }, { $set: dadosFiltrados });
         return res.status(200).json({
           message: "Busquei realizada na api e dados salvados no banco",
           dadosFiltrados,
